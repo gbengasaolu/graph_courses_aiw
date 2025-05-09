@@ -1,134 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Olugbenga Asaolu | Generative AI Portfolio</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* ------------------ Root & Reset ------------------ */
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --clr-bg:#ffffff;
-      --clr-primary:#083d77;
-      --clr-secondary:#f4f7ff;
-      --clr-accent:#ffb400;
-      --radius:10px;
-      --shadow-sm:0 1px 3px rgba(0,0,0,.08);
-      --shadow-lg:0 8px 24px rgba(0,0,0,.12);
-    }
-    body{font-family:'Inter',sans-serif;background:var(--clr-bg);line-height:1.6;color:#222;}
-    a{color:var(--clr-primary);text-decoration:none;}
-    a:hover{text-decoration:underline;}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Olugbenga Asaolu | Generative AI Portfolio</title>
 
-    /* ------------------ Layout ------------------ */
-    header{
-      background:linear-gradient(135deg,#0b48a2 0%,#083d77 100%);
-      color:#fff;
-      padding:4rem 1rem 5.5rem;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
-    header::after{
-      content:"";
-      position:absolute;
-      bottom:-60px;left:50%;transform:translateX(-50%);
-      width:120%;height:120px;
-      background:var(--clr-bg);
-      border-radius:50%;
-    }
-    .profile-pic{
-      width:140px;height:140px;object-fit:cover;border-radius:50%;border:4px solid #fff;box-shadow:var(--shadow-lg);margin-bottom:1.2rem;position:relative;z-index:1;
-    }
-    header h1{font-size:2.2rem;font-weight:700;margin-bottom:.3rem;position:relative;z-index:1;}
-    header p{opacity:.9;position:relative;z-index:1;}
-    nav{margin-top:1.2rem;display:flex;justify-content:center;gap:1.5rem;position:relative;z-index:1;flex-wrap:wrap;}
-    nav a{color:#e2e8ff;font-weight:600;font-size:.95rem;}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-    main{max-width:1100px;margin:auto;padding:0 1rem;}
-    section{padding:4rem 0 3.5rem;}
-    h2{color:var(--clr-primary);font-size:1.75rem;font-weight:700;margin-bottom:1rem;}
+    <style>
+      /*––––––––  CSS RESET & CORE TOKENS  ––––––––*/
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+      :root{
+        /* palette */
+        --clr-bg:#fdfdff;
+        --clr-surface:#ffffff;
+        --clr-primary:#141433;           /* deep navy */
+        --clr-primary-light:#2d2d6a;
+        --clr-accent:#ff3d30;            /* highlight red */
+        --clr-muted:#7d88a5;
+        /* sizing */
+        --radius:14px;
+        --shadow-sm:0 2px 6px rgba(0,0,0,.05);
+        --shadow-lg:0 18px 45px rgba(0,0,0,.22);
+        --max-width:1150px;
+      }
+      body{font-family:'Inter',sans-serif;background:var(--clr-bg);color:#222;line-height:1.6;scroll-behavior:smooth;}
+      img{max-width:100%;display:block}
+      a{color:var(--clr-primary-light);text-decoration:none;transition:opacity .2s ease;}
+      a:hover{opacity:.75;text-decoration:none}
 
-    .card{background:var(--clr-secondary);border-radius:var(--radius);padding:1.5rem;margin-bottom:2rem;box-shadow:var(--shadow-sm);}    
-    .card ul{margin-left:1rem;padding-left:.5rem;list-style:disc;}
+      /*––––––––  NAVIGATION  ––––––––*/
+      .navbar{position:sticky;top:0;z-index:999;background:rgba(20,20,51,.92);backdrop-filter:saturate(180%) blur(8px);}
+      .nav-wrapper{max-width:var(--max-width);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;}
+      .brand{color:#fff;font-weight:700;font-size:1rem;letter-spacing:.3px;}
+      .nav-links{display:flex;gap:1.6rem;flex-wrap:wrap;align-items:center;}
+      .nav-links a{color:#fff;font-weight:500;font-size:.94rem;}
 
-    /* Submission list */
-    .submissions ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.6rem;list-style:none;margin-top:1rem;}
-    .submissions li{background:#fff;border:1px solid #e6ebf5;border-radius:var(--radius);padding:.6rem .8rem;font-weight:600;box-shadow:var(--shadow-sm);}
+      /*––––––––  HERO  ––––––––*/
+      .hero{background:linear-gradient(145deg,#141433 0%,#1f1f4d 100%);color:#fff;padding:5.2rem 1rem 5.8rem;}
+      .hero-inner{max-width:var(--max-width);margin:auto;display:flex;align-items:center;gap:3.2rem;flex-wrap:wrap;}
+      .hero-text{flex:1 1 340px;min-width:280px;}
+      .hero-text h1{font-size:2.7rem;font-weight:700;line-height:1.2;}
+      .hero-text h1 .accent{color:var(--clr-accent);display:block;}
+      .hero-text p{margin-top:1rem;font-size:1.05rem;opacity:.9;}
+      .hero-photo{flex:0 0 220px;}
+      .profile{width:220px;height:220px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:var(--shadow-lg);}
 
-    footer{background:#f0f2f8;text-align:center;padding:1.4rem;font-size:.88rem;color:#555;}
+      /*––––––––  GENERAL LAYOUT  ––––––––*/
+      main{max-width:var(--max-width);margin:auto;padding:0 1rem;}
+      section{padding:4rem 0 3.5rem;}
+      h2{font-size:2rem;font-weight:700;color:var(--clr-primary);margin-bottom:1.3rem;}
+      .card{background:var(--clr-surface);border-radius:var(--radius);padding:2rem 1.8rem;box-shadow:var(--shadow-sm);} 
+      .card ul{margin-left:1rem;list-style:disc;padding-left:.8rem;}
 
-    /* ---------- Responsive tweaks ---------- */
-    @media(max-width:600px){
-      header h1{font-size:1.8rem;}
-      nav{gap:.8rem;}
-    }
-  </style>
-</head>
-<body>
-  <!-- ===== Header / Hero ===== -->
-  <header>
-    <img src="https://github.com/gbengasaolu/graph_courses_aiw/blob/main/Gbenga%20Asaolu%20CEO%20Pose%201_May%202023.jpeg?raw=true" alt="Olugbenga Asaolu" class="profile-pic" />
-    <h1>Olugbenga Asaolu, PhD</h1>
-    <p>Senior Data Scientist &amp; Epidemiologist • Health Informatics</p>
-    <nav>
-      <a href="#about-me">About&nbsp;Me</a>
-      <a href="#about-course">Course</a>
-      <a href="#submissions">My&nbsp;Work</a>
-      <a href="https://www.linkedin.com/in/dr-olugbenga-asaolu/" target="_blank" rel="noopener">LinkedIn</a>
-    </nav>
-  </header>
+      /*––––––––  PORTFOLIO GRID  ––––––––*/
+      .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.4rem;margin-top:1.2rem;}
+      .project{display:flex;flex-direction:column;gap:.5rem;padding:1.3rem 1.5rem;background:var(--clr-surface);border:1px solid #e4e8f4;border-radius:var(--radius);box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease;}
+      .project:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}  
+      .project h3{font-size:1.1rem;color:var(--clr-primary);}
+      .project p{font-size:.9rem;color:var(--clr-muted);}  
 
-  <main>
-    <!-- ===== About Me ===== -->
-    <section id="about-me">
-      <h2>About Me</h2>
-      <div class="card">
-        <p>I am a data‑driven Senior Data Scientist and Epidemiologist with <strong>13+ years</strong> of experience in biostatistics, real‑world data analytics, and machine‑learning applications in global health. Currently, I serve as a Health Scientist (Informatics &amp; Data Science) at the <strong>U.S.&nbsp;Centers for Disease Control and Prevention</strong>, where I design advanced analytics and AI solutions powering national and international infectious‑disease surveillance.</p>
-        <p>Across roles at USAID, CDC Nigeria, and leading NGOs, I have authored <strong>30+ peer‑reviewed publications</strong>, led national HIV surveillance programs, and built AI‑driven tools that improve health‑care outcomes. My tool‑kit spans Python, R, SQL, AWS, and advanced ML techniques for causal inference, predictive modeling, and knowledge extraction.</p>
+      /*––––––––  SUBMISSIONS  ––––––––*/
+      .sub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin-top:1.1rem;list-style:none;}
+      .sub-grid li{background:var(--clr-surface);border:1px solid #e4e8f4;border-radius:var(--radius);padding:.8rem 1rem;font-weight:600;font-size:.9rem;box-shadow:var(--shadow-sm);}  
+
+      /*––––––––  FOOTER  ––––––––*/
+      footer{background:#f3f5fb;text-align:center;padding:1.8rem;font-size:.88rem;color:var(--clr-muted);margin-top:4rem;}
+
+      /*––––––––  MEDIA  ––––––––*/
+      @media(max-width:600px){
+        .hero-text h1{font-size:2.2rem;}
+        .hero-photo{flex-basis:160px;}
+        .profile{width:160px;height:160px;}
+        .nav-links{gap:1.1rem;justify-content:center;}
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =========  NAVBAR  ========= -->
+    <header class="navbar">
+      <div class="nav-wrapper">
+        <a href="#about-me" class="brand">Gbenga&nbsp;Asaolu</a>
+        <nav class="nav-links">
+          <a href="#about-me">About</a>
+          <a href="#about-course">Course</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#submissions">Submissions</a>
+          <a href="https://www.linkedin.com/in/dr-olugbenga-asaolu/" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =========  HERO  ========= -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Hello, I'm<br/>Olugbenga Asaolu<span class="accent">Data‑Science Leader</span></h1>
+          <p>🚀 Transforming complex public‑health data into AI‑driven solutions that save lives and guide policy. I blend epidemiology, informatics &amp; advanced analytics to elevate global health programmes.</p>
+        </div>
+        <div class="hero-photo">
+          <img class="profile" src="https://github.com/gbengasaolu/graph_courses_aiw/blob/main/Gbenga%20Asaolu%20CEO%20Pose%201_May%202023.jpeg?raw=true" alt="Olugbenga Asaolu profile photo" />
+        </div>
       </div>
     </section>
 
-    <!-- ===== About Course ===== -->
-    <section id="about-course">
-      <h2>About the Course</h2>
-      <div class="card">
-        <h3>Generative AI for Work &amp; Research Productivity</h3>
-        <p>This <strong>8‑week live online certification</strong> from the <em>GRAPH Network</em> teaches no‑code AI tools for automating data analysis, content creation, knowledge management, and routine tasks. Through hands‑on workshops and a capstone project, participants learn to:</p>
-        <ul>
-          <li>Automate document, spreadsheet, and data workflows</li>
-          <li>Organize literature and perform knowledge synthesis with AI</li>
-          <li>Develop custom chatbots and RAG systems</li>
-          <li>Create professional visuals and presentations with generative tools</li>
-          <li>Design AI‑powered automations to reclaim hours of work each week</li>
-        </ul>
-        <p><strong>Next Cohort:</strong> Starts <time datetime="2025-05-09">9&nbsp;May&nbsp;2025</time> • Live workshops on Fridays <abbr title="Greenwich Mean Time">GMT</abbr>.</p>
-      </div>
-    </section>
+    <main>
+      <!-- =========  ABOUT  ========= -->
+      <section id="about-me">
+        <h2>About Me</h2>
+        <div class="card">
+          <p><strong>Public‑health specialist</strong> with <strong>15‑plus&nbsp;years</strong> driving strategic information systems for governments, ministries, departments &amp; agencies globally. I build analytics pipelines that convert complex health data into decisive action.</p>
+          <p>My portfolio spans <strong>20+ national surveys</strong>, national surveillance guidelines, AI‑driven dashboards, and publications in top journals (<strong>30+ papers</strong>). I mentor teams to become data‑literate and lead modern health‑informatics transformations.</p>
+          <p>Research passions: real‑world data, causal inference, Bayesian modelling, and generative AI applications for disease surveillance.</p>
+        </div>
+      </section>
 
-    <!-- ===== Weekly Submissions ===== -->
-    <section id="submissions" class="submissions">
-      <h2>My Weekly Submissions</h2>
-      <div class="card">
-        <p>Links to my weekly assignments and projects will appear here as the course progresses.</p>
-        <ul>
-          <li>Week&nbsp;1 – Coming soon</li>
-          <li>Week&nbsp;2 – Coming soon</li>
-          <li>Week&nbsp;3 – Coming soon</li>
-          <li>Week&nbsp;4 – Coming soon</li>
-          <li>Week&nbsp;5 – Coming soon</li>
-          <li>Week&nbsp;6 – Coming soon</li>
-          <li>Week&nbsp;7 – Coming soon</li>
-          <li>Week&nbsp;8 – Capstone Project (TBD)</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+      <!-- =========  COURSE  ========= -->
+      <section id="about-course">
+        <h2>About the Course</h2>
+        <div class="card">
+          <h3 style="margin-bottom:.7rem;">Generative AI for Work &amp; Research Productivity</h3>
+          <p>This <strong>8‑week live online certification</strong> (GRAPH Network) empowers professionals to automate analysis, content, and workflows using no‑code AI tools.</p>
+          <ul>
+            <li>Automate document &amp; spreadsheet tasks</li>
+            <li>AI‑driven literature reviews &amp; knowledge synthesis</li>
+            <li>Build custom chatbots / RAG systems</li>
+            <li>Create visuals &amp; presentations with generative tools</li>
+            <li>Design cross‑platform automations for daily routines</li>
+          </ul>
+          <p style="margin-top:1rem;"><strong>Next cohort:</strong> <time datetime="2025-05-09">9 May 2025</time> • Live workshops Fridays &amp; Sundays <abbr title="Greenwich Mean Time">GMT</abbr>.</p>
+        </div>
+      </section>
 
-  <!-- ===== Footer ===== -->
-  <footer>
-    © 2025 Olugbenga Asaolu. All rights reserved.
-  </footer>
-</body>
+      <!-- =========  PORTFOLIO  ========= -->
+      <section id="portfolio">
+        <h2>Project Portfolio</h2>
+        <div class="grid">
+          <a href="https://gbengasaolu.github.io/rmc_life_satisfaction_webpage_gb/" target="_blank" rel="noopener" class="project">
+            <h3>Advanced Analytics with R</h3>
+            <p>Interactive life‑satisfaction analysis with R Markdown &amp; Shiny‑style widgets.</p>
+          </a>
+          <a href="https://gbengasaolu.github.io/gapminder_2007/gapminder_2007#home" target="_blank" rel="noopener" class="project">
+            <h3>Gapminder 2007 Dashboard</h3>
+            <p>Plotly‑Dash exploration of GDP, life expectancy &amp; population.</p>
+          </a>
+          <a href="https://gbengasaolu.github.io/Gapminder_lifeexp_gdp/dahboard_final#home" target="_blank" rel="noopener" class="project">
+            <h3>Life‑Expectancy &amp; GDP Trends</h3>
+            <p>Comprehensive Python analysis &amp; interactive reporting.</p>
+          </a>
+          <a href="https://gbengasaolu.github.io/GLOBAL_HIV_AIDS_ANALYSIS/" target="_blank" rel="noopener" class="project">
+            <h3>Global HIV/AIDS Analysis</h3>
+            <p>End‑to‑end epidemiological insights with dynamic visualisations.</p>
+          </a>
+          <a href="https://gbengasaolu.github.io/dsu_wkds_analysis/#home" target="_blank" rel="noopener" class="project">
+            <h3>U.S. HIV Mortality Dashboard</h3>
+            <p>National HIV mortality trends utilised by CDC stakeholders.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- =========  SUBMISSIONS  ========= -->
+      <section id="submissions">
+        <h2>Course Submissions</h2>
+        <div class="card">
+          <p>Weekly deliverables will appear below as the cohort progresses.</p>
+          <ul class="sub-grid">
+            <li>Week 1 – Coming Soon</li>
+            <li>Week 2 – Coming Soon</li>
+            <li>Week 3 – Coming Soon</li>
+            <li>Week 4 – Coming Soon</li>
+            <li>Week 5 – Coming Soon</li>
+            <li>Week 6 – Coming Soon</li>
+            <li>Week 7 – Coming Soon</li>
+            <li>Week 8 – Capstone (TBD)</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 Olugbenga Asaolu · All rights reserved.
+    </footer>
+  </body>
 </html>

@@ -41,7 +41,7 @@
       .hero{background:linear-gradient(145deg,#141433 0%,#1f1f4d 100%);color:#fff;padding:5.2rem 1rem 5.8rem;}
       .hero-inner{max-width:var(--max-width);margin:auto;display:flex;align-items:center;gap:3.2rem;flex-wrap:wrap;}
       .hero-text{flex:1 1 340px;min-width:280px;}
-      .hero-text h1{font-size:2.7rem;font-weight:700;line-height:1.2;}
+      .hero-text h1{font-size:2.7rem;font-weight:700;line-height:1.2;color:#fff;}
       .hero-text h1 .accent{color:var(--clr-accent);display:block;}
       .hero-text p{margin-top:1rem;font-size:1.05rem;opacity:.9;}
       .hero-photo{flex:0 0 220px;}
@@ -62,8 +62,13 @@
       .project p{font-size:.9rem;color:var(--clr-muted);}  
 
       /*––––––––  SUBMISSIONS  ––––––––*/
-      .sub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin-top:1.1rem;list-style:none;}
-      .sub-grid li{background:var(--clr-surface);border:1px solid #e4e8f4;border-radius:var(--radius);padding:.8rem 1rem;font-weight:600;font-size:.9rem;box-shadow:var(--shadow-sm);}  
+      .sub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.3rem;list-style:none;}
+      .sub-grid li{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);}
+      .tile-link{display:flex;align-items:center;justify-content:center;height:100%;padding:1.2rem;background:var(--clr-surface);color:var(--clr-primary);font-weight:600;font-size:.92rem;text-align:center;transition:transform .18s ease,box-shadow .18s ease;background-image:linear-gradient(135deg,#ffffff 0%,#f4f6ff 100%);}
+      .tile-link:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}  
+
+      /* TBD tiles */
+      .tbd{background:#f3f4fa;color:var(--clr-muted);}
 
       /*––––––––  FOOTER  ––––––––*/
       footer{background:#f3f5fb;text-align:center;padding:1.8rem;font-size:.88rem;color:var(--clr-muted);margin-top:4rem;}
@@ -96,7 +101,7 @@
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-text">
-          <h1>Hello, I'm<br/>Olugbenga Asaolu<span class="accent">Data‑Science Leader</span></h1>
+          <h1>Hello, I'm<br/>Olugbenga Asaolu<span class="accent">Data‑Science Leader</span></h1>
           <p>🚀 Transforming complex public‑health data into AI‑driven solutions that save lives and guide policy. I blend epidemiology, informatics &amp; advanced analytics to elevate global health programmes.</p>
         </div>
         <div class="hero-photo">
@@ -138,11 +143,11 @@
         <h2>Project Portfolio</h2>
         <div class="grid">
           <a href="https://gbengasaolu.github.io/rmc_life_satisfaction_webpage_gb/" target="_blank" rel="noopener" class="project">
-            <h3>Advanced Analytics with R</h3>
-            <p>Interactive life‑satisfaction analysis with R Markdown &amp; Shiny‑style widgets.</p>
+            <h3>Advanced Analytics with R</h3>
+            <p>Interactive life‑satisfaction analysis with R Markdown &amp; Shiny‑style widgets.</p>
           </a>
           <a href="https://gbengasaolu.github.io/gapminder_2007/gapminder_2007#home" target="_blank" rel="noopener" class="project">
-            <h3>Gapminder 2007 Dashboard</h3>
+            <h3>Gapminder 2007 Dashboard</h3>
             <p>Plotly‑Dash exploration of GDP, life expectancy &amp; population.</p>
           </a>
           <a href="https://gbengasaolu.github.io/Gapminder_lifeexp_gdp/dahboard_final#home" target="_blank" rel="noopener" class="project">
@@ -164,23 +169,22 @@
       <section id="submissions">
         <h2>Course Submissions</h2>
         <div class="card">
-          <p>Weekly deliverables will appear below as the cohort progresses.</p>
           <ul class="sub-grid">
-            <li>Week 1 – Coming Soon</li>
-            <li>Week 2 – Coming Soon</li>
-            <li>Week 3 – Coming Soon</li>
-            <li>Week 4 – Coming Soon</li>
-            <li>Week 5 – Coming Soon</li>
-            <li>Week 6 – Coming Soon</li>
-            <li>Week 7 – Coming Soon</li>
-            <li>Week 8 – Capstone (TBD)</li>
+            <li><a class="tile-link" href="https://gbengasaolu.github.io/website/" target="_blank" rel="noopener">Week 1 — Personal Website</a></li>
+            <li><a class="tile-link" href="https://github.com/gbengasaolu/graph_courses_aiw/blob/main/week2_output.pdf" target="_blank" rel="noopener">Week 2 — GenAI Output&nbsp;(PDF)</a></li>
+            <li><a class="tile-link" href="https://github.com/gbengasaolu/graph_courses_aiw/blob/main/Job%20Market%20Analysis%20Report_Julius_Week3%20output.pdf" target="_blank" rel="noopener">Week 3 — Job‑Market Report</a></li>
+            <li><span class="tile-link tbd">Week 4 — TBD</span></li>
+            <li><span class="tile-link tbd">Week 5 — TBD</span></li>
+            <li><span class="tile-link tbd">Week 6 — TBD</span></li>
+            <li><span class="tile-link tbd">Week 7 — TBD</span></li>
+            <li><span class="tile-link tbd">Week 8 — Capstone</span></li>
           </ul>
         </div>
       </section>
     </main>
 
     <footer>
-      © 2025 Olugbenga Asaolu · All rights reserved.
+      © 2025 Olugbenga Asaolu · All rights reserved.
     </footer>
   </body>
 </html>
